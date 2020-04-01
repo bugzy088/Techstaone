@@ -11,7 +11,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 display:block;
 }
 
-html, body {background: #092327; font-family: 'Muli', arial; font-size: 16px; color: #6969B3;}
+html, body {background: #1C77C3; font-family: 'Muli', arial; font-size: 16px; color: #E8EBF7;}
 
 .clear {clear: both;}
 
@@ -19,41 +19,61 @@ p {
 	font-size: 1em;
 	line-height: 1.3em;
 	margin-bottom: 20px;
-	color: #DAD2D8;
+	color: #F39237;
 }
 
-#details {
+#Header {
 	width: 90%;
 	max-width: 900px;
-	background: #1C2541;
+	background: #E8EBF7;
 	margin: 30px auto;
 }
 
-.mainDetails {
+.mainHeader {
 	padding: 35px 35px;
 	border-bottom: 2px #5BC0BE;
-	background: #092327;
+	background: #1C77C3;
+	float: auto;
 }
 
-#name h1 {
-	font-size: 2.5em;
+#Teamname h1 {
+	font-size: 3.5em;
 	font-weight: 700;
 	font-family: 'Roboto Mono', Arial;
 	margin-bottom: -6px;
-}
-
-#name h2 {
-	font-size: 2em;
-	margin-left: 2px;
-	font-family: 'Roboto Mono', Arial;
+	text-align: center;
 }
 
 #mainArea {
 	padding: 0 40px;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
 section {
-	border-top: 3px solid #98c1d9;
+	border-top: 3px solid #ACBED8;
 	padding: 20px 0 0 20px;
 }
 
@@ -66,91 +86,15 @@ section:last-child {
 }
 
 .sectionTitle {
-	float: left;
-	width: 25%;
+	float: auto;
+	padding: 0 0 20px;
 }
-
 
 .sectionTitle h1 {
 	font-family: font-family: 'Roboto Mono', Arial;
 	font-style: italic;
 	font-size: 1.5em;
-	color: #6FFFE9;
-	margin: 0 0 50px;
-}
-
-.sectionTitle img {
-	width: 90%;
-	height: auto;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
-	padding: 5px 5px;
-}
-
-.sectionContent h2 {
-	font-family: font-family: 'Roboto Mono', Arial;
-	font-size: 1.5em;
-	margin-bottom: 6px;
-}
-
-.sectionContent h3 {
-	font-family: font-family: 'Roboto Mono', Arial;
-	font-style: italic;
-	font-size: 1.1em;
-	margin-bottom: -2px;
-}
-
-
-.sectionContent {
-	float: right;
-	width: 72.5%;
-	margin: 0 0 20px;
-}
-
-.sectionContent img {
-	width: auto;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
+	color: #DE1A1A;
+	text-align: center;
 
 }
-
-
-.interests {
-	list-style-type: circle;
-	-moz-column-count:2;
-	-webkit-column-count:2;
-	column-count:2;
-	row
-	font-size: 1em;
-	color: #DAD2D8;
-	}
-
-.skills {
-	list-style-type: Dot;
-	font-size: 1em;
-	color: #DAD2D8;
-	padding-bottom: 10px;
-	}
-
-.CISCO {
-	list-style-type: Circle;
-	font-size: 1em;
-	color: #DAD2D8;
-	margin-left: 25px;
-	padding-bottom: 20px;
-}
-
-.numbers {
-	font-size: 1em;
-	color: #DAD2D8;
-}
-
-
-.refs {
-	list-style-type: Dot;
-	font-size: 1em;
-	color: #DAD2D8;
-	padding-bottom: 10px;
-	word-break: break-all;
-	}
