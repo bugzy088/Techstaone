@@ -20,7 +20,7 @@ p {
 	line-height: 1.3em;
 	margin-bottom: 20px;
 	color: #DAD2D8;
-}	
+}
 
 #details {
 	width: 90%;
@@ -32,7 +32,7 @@ p {
 .mainDetails {
 	padding: 35px 35px;
 	border-bottom: 2px #5BC0BE;
-	background: #092327;	
+	background: #092327;
 }
 
 #name h1 {
@@ -50,31 +50,6 @@ p {
 
 #mainArea {
 	padding: 0 40px;
-}
-
-#headshot {
-	width: 20%;
-	float: right;
-	margin-right: 30px;
-	
-}
-
-#headshot img {
-	width: 100%;
-	height: auto;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
-}
-
-#contactDetails ul {
-	list-style-type: none;
-	font-size: 0.8em;
-	margin-top: 2px;
-}
-
-#contactDetails ul li {
-	margin-bottom: 3px;
-	color: #6969B3;
 }
 
 section {
@@ -157,7 +132,7 @@ section:last-child {
 	color: #DAD2D8;
 	padding-bottom: 10px;
 	}
-	
+
 .CISCO {
 	list-style-type: Circle;
 	font-size: 1em;
