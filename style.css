@@ -11,7 +11,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 display:block;
 }
 
-html, body {background: #1C77C3; font-family: 'Muli', arial; font-size: 16px; color: #E8EBF7;}
+html, body {font-family: 'Muli', arial; font-size: 16px; color: #E8EBF7; height: 100%}
 
 .clear {clear: both;}
 
@@ -19,7 +19,7 @@ p {
 	font-size: 1em;
 	line-height: 1.3em;
 	margin-bottom: 20px;
-	color: #F39237;
+	color: #00A7E1;
 }
 
 #Header {
@@ -73,7 +73,7 @@ p {
 }
 
 section {
-	border-top: 3px solid #ACBED8;
+
 	padding: 20px 0 0 20px;
 }
 
@@ -94,7 +94,7 @@ section:last-child {
 	font-family: font-family: 'Roboto Mono', Arial;
 	font-style: italic;
 	font-size: 1.5em;
-	color: #DE1A1A;
+	color: #149911;
 	text-align: center;
 
 }
