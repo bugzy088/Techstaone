@@ -11,7 +11,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 display:block;
 }
 
-html, body {background: #092327; font-family: 'Muli', arial; font-size: 16px; color: #6969B3;}
+html, body {font-family: 'Muli', arial; font-size: 16px; color: #E8EBF7; height: 100%}
 
 .clear {clear: both;}
 
@@ -19,68 +19,60 @@ p {
 	font-size: 1em;
 	line-height: 1.3em;
 	margin-bottom: 20px;
-	color: #DAD2D8;
+	color: #00A7E1;
 }
 
-#details {
+#Header {
 	width: 90%;
 	max-width: 900px;
-	background: #1C2541;
+	background: #E8EBF7;
 	margin: 30px auto;
 }
 
-.mainDetails {
+.mainHeader {
 	padding: 35px 35px;
 	border-bottom: 2px #5BC0BE;
-	background: #092327;
+	background: #1C77C3;
 	float: auto;
 }
 
-#name h1 {
-	font-size: 2.5em;
+#Teamname h1 {
+	font-size: 3.5em;
 	font-weight: 700;
 	font-family: 'Roboto Mono', Arial;
 	margin-bottom: -6px;
 	text-align: center;
 }
 
-#name h2 {
-	font-size: 2em;
-	margin-left: 2px;
-	font-family: 'Roboto Mono', Arial;
-}
-
 #mainArea {
 	padding: 0 40px;
 }
 
-#headshot {
-	width: 20%;
-	float: right;
-	margin-right: 30px;
-
+.topnav {
+  overflow: hidden;
+  background-color: #333;
 }
 
-#headshot img {
-	width: 100%;
-	height: auto;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-#contactDetails ul {
-	list-style-type: none;
-	font-size: 0.8em;
-	margin-top: 2px;
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
-#contactDetails ul li {
-	margin-bottom: 3px;
-	color: #6969B3;
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
 }
 
 section {
-	border-top: 3px solid #98c1d9;
 	padding: 20px 0 0 20px;
 }
 
@@ -92,17 +84,27 @@ section:last-child {
 	padding: 20px 0 10px;
 }
 
+.sectionHeading {
+	padding: 20px 0 20px;
+	background-color: black;}
+
+.sectionHeading h1 {
+	font-family: font-family: 'Roboto Mono', Arial;
+	font-style: italic;
+	font-size: 2em;
+	text-align: center;
+	color: green;}
+
 .sectionTitle {
 	float: left;
 	width: 25%;
 }
 
-
 .sectionTitle h1 {
 	font-family: font-family: 'Roboto Mono', Arial;
 	font-style: italic;
 	font-size: 1.5em;
-	color: #6FFFE9;
+	color: #149911;
 	margin: 0 0 50px;
 }
 
@@ -133,51 +135,3 @@ section:last-child {
 	width: 72.5%;
 	margin: 0 0 20px;
 }
-
-.sectionContent img {
-	width: auto;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
-
-}
-
-
-.interests {
-	list-style-type: circle;
-	-moz-column-count:2;
-	-webkit-column-count:2;
-	column-count:2;
-	row
-	font-size: 1em;
-	color: #DAD2D8;
-	}
-
-.skills {
-	list-style-type: Dot;
-	font-size: 1em;
-	color: #DAD2D8;
-	padding-bottom: 10px;
-	}
-
-.CISCO {
-	list-style-type: Circle;
-	font-size: 1em;
-	color: #DAD2D8;
-	margin-left: 25px;
-	padding-bottom: 20px;
-}
-
-.numbers {
-	font-size: 1em;
-	color: #DAD2D8;
-}
-
-
-.refs {
-	list-style-type: Dot;
-	font-size: 1em;
-	color: #DAD2D8;
-	padding-bottom: 10px;
-	word-break: break-all;
-	}
