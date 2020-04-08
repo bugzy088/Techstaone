@@ -40,6 +40,12 @@ p {
 	padding: 0 40px;
 }
 
+.mainHeader img{
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .topnav {
   overflow: hidden;
   background-color: #333;

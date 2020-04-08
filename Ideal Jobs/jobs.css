@@ -36,6 +36,12 @@ p {
 	float: auto;
 }
 
+.mainHeader img{
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #mainArea {
 	padding: 0 40px;
 }
