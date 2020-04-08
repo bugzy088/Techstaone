@@ -1,2 +1,2 @@
-# Techstaone
+# Techsta-One
 Team website
