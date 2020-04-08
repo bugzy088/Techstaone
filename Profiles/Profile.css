@@ -30,18 +30,10 @@ p {
 }
 
 .mainHeader {
-	padding: 35px 35px;
+	padding: 20px 20px;
 	border-bottom: 2px #5BC0BE;
 	background: #1C77C3;
 	float: auto;
-}
-
-#Teamname h1 {
-	font-size: 3.5em;
-	font-weight: 700;
-	font-family: 'Roboto Mono', Arial;
-	margin-bottom: -6px;
-	text-align: center;
 }
 
 #mainArea {
