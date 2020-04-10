@@ -18,7 +18,8 @@ html, body {font-family: 'Muli', arial; font-size: 16px; color: #E8EBF7; height:
 p {
 	font-size: 1em;
 	line-height: 1.3em;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
+	margin-top: 20px;
 	color: #00A7E1;
 }
 
@@ -30,18 +31,15 @@ p {
 }
 
 .mainHeader {
-	padding: 35px 35px;
-	border-bottom: 2px #5BC0BE;
+	padding: 20px 20px;
 	background: #1C77C3;
 	float: auto;
 }
 
-#Teamname h1 {
-	font-size: 3.5em;
-	font-weight: 700;
-	font-family: 'Roboto Mono', Arial;
-	margin-bottom: -6px;
-	text-align: center;
+.mainHeader img{
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #mainArea {
@@ -73,6 +71,7 @@ p {
 }
 
 section {
+	border-top: 3px solid black;
 	padding: 20px 0 0 20px;
 }
 
@@ -86,7 +85,12 @@ section:last-child {
 
 .sectionHeading {
 	padding: 20px 0 20px;
-	background-color: black;}
+	color: #149911;
+	font-family: font-family: 'Roboto Mono', Arial;
+	font-style: italic;
+	font-size: 2.5em;
+	text-align: center;
+}
 
 .sectionHeading h1 {
 	font-family: font-family: 'Roboto Mono', Arial;
@@ -105,7 +109,18 @@ section:last-child {
 	font-style: italic;
 	font-size: 1.5em;
 	color: #149911;
-	margin: 0 0 50px;
+	margin: 0 0 5px;
+}
+
+.sectionTitle ul{
+	list-style-type: none;
+	font-size: 0.8em;
+	margin-top: 2px;
+}
+
+.sectionTitle ul li {
+	margin-bottom: 3px;
+	color: #00A7E1;
 }
 
 .sectionTitle img {
@@ -129,9 +144,15 @@ section:last-child {
 	margin-bottom: -2px;
 }
 
-
 .sectionContent {
 	float: right;
 	width: 72.5%;
 	margin: 0 0 20px;
+}
+
+.interests{
+	list-style-type: circle;
+	font-size: 1em;
+	color: #00A7E1;
+	margin-left: 50px
 }
