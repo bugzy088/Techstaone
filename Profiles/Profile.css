@@ -32,6 +32,7 @@ p {
 
 .mainHeader {
 	padding: 20px 20px;
+	border-bottom: 2px #5BC0BE;
 	background: #1C77C3;
 	float: auto;
 }
@@ -148,11 +149,4 @@ section:last-child {
 	float: right;
 	width: 72.5%;
 	margin: 0 0 20px;
-}
-
-.interests{
-	list-style-type: circle;
-	font-size: 1em;
-	color: #00A7E1;
-	margin-left: 50px
 }
