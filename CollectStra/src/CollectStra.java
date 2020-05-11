@@ -32,6 +32,7 @@ public class CollectStra extends JPanel {
 	private JButton delTra;
 	private JTextField catText;
 	private JTextField traText;
+	private JTextField searchText;
 	private JLabel title;
 	private JLabel catLab;
 	private JLabel traLab;
@@ -70,7 +71,6 @@ public class CollectStra extends JPanel {
 		JScrollPane catScrollPane = new JScrollPane(this.catalog);
 		this.catalog.setBounds(475, 100, 300, 400);
 		this.panel.add(catalog);
-		
 
 		// Trade list parameters
 		this.trade = new JList(traModel);
@@ -81,23 +81,67 @@ public class CollectStra extends JPanel {
 		this.trade.setBounds(10, 100, 300, 400);
 		this.panel.add(trade);
 
-		//add to Collection list and search
+		// add to Collection list and search
 		this.catText = new JTextField(20);
-		this.catText.setBounds(575, 70, 200, 25);
+		this.catText.setBounds(675, 70, 100, 25);
 		this.panel.add(catText);
 		this.catText.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				collection.add(catText.getText());
-					catModel.addElement(collection.get(numItems));
-					// Collections.sort(collection);
-					catText.setText("");
-					numItems++;
-					
+				catModel.addElement(collection.get(numItems));
+				catText.setText("");
+				numItems++;
+
 			}
 		});
+
+		this.searchText = new JTextField(20);
+		this.searchText.setBounds(575, 70, 100, 25);
+		this.panel.add(searchText);
+		this.searchText.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				catModel.clear();
+				int index = 0;
+				String check = searchText.getText();
+				boolean search = collection.contains(check);
+				if (search == false) {
+					for (int i = 0; i < collection.size(); i++) {
+						catModel.addElement(collection.get(i));
+					}
+				}
+
+				else if (collection.contains(check)) {
+					index = collection.indexOf(check);
+					catModel.addElement(collection.get(index));
+
+				}
+
+			}
+
+		});
+
 		this.traText = new JTextField(20);
 		this.traText.setBounds(10, 70, 200, 25);
 		this.panel.add(traText);
+		this.traText.addActionListener(new searchTrade() {
+			public void actionPerformed(ActionEvent e) {
+				traModel.clear();
+				int index = 0;
+				String check = traText.getText();
+				boolean search = forTrade.contains(check);
+				if (forTrade.contains(check)) {
+					index = forTrade.indexOf(check);
+					traModel.addElement(forTrade.get(index));
+				}
+
+				else {
+					for (int i = 0; i < numTradeItems; i++) {
+						traModel.addElement(forTrade.get(i));
+					}
+
+				}
+			}
+		});
 
 		// Labels
 		this.title = new JLabel("CollectStra");
@@ -109,36 +153,36 @@ public class CollectStra extends JPanel {
 		this.traLab = new JLabel("Trader");
 		this.traLab.setBounds(135, 500, 100, 20);
 		this.panel.add(traLab);
-		
-		//Add buton and enter key work to add to collection
+
+		// Add buton and enter key work to add to collection
 		this.addcat = new JButton("Add");
 		this.addcat.addActionListener(new addCatListen());
 		this.addcat.setBounds(675, 30, 100, 40);
 		this.panel.add(addcat);
 
 		this.searchCat = new JButton("Search");
-		this.addcat.addActionListener(new addCatListen());
+		this.searchCat.addActionListener(new searchCollection());
 		this.searchCat.setBounds(575, 30, 100, 40);
 		this.panel.add(searchCat);
 
-		//Trade button takes element from colection and adds it to list
+		// Trade button takes element from colection and adds it to list
 		this.addTra = new JButton("Trade");
 		this.addTra.addActionListener(new addTraListen());
 		this.addTra.setBounds(8, 30, 100, 40);
 		this.panel.add(addTra);
 
-		this.searchTra = new JButton("Search");
-		this.addcat.addActionListener(new addCatListen());
+		this.searchTra = new JButton("Find");
+		this.searchTra.addActionListener(new searchTrade());
 		this.searchTra.setBounds(108, 30, 100, 40);
 		this.panel.add(searchTra);
 
-		//Deletes Item from both collection list and array
+		// Deletes Item from both collection list and array
 		this.delCat = new JButton("Delete");
 		this.delCat.addActionListener(new removeFromCollection());
 		this.delCat.setBounds(475, 55, 100, 40);
 		this.panel.add(delCat);
 
-		//Removes from Trade and forTrade array
+		// Removes from Trade and forTrade array
 		this.delTra = new JButton("Remove");
 		this.delTra.addActionListener(new removeFromTrade());
 		this.delTra.setBounds(208, 55, 100, 40);
@@ -149,12 +193,11 @@ public class CollectStra extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			collection.add(catText.getText());
 			catModel.addElement(collection.get(numItems));
-			// Collections.sort(collection);
 			catText.setText("");
 			numItems++;
 		}
 	}
-	
+
 	class addTraListen implements ActionListener {
 		public void actionPerformed(ActionEvent a) {
 			if (a.getActionCommand().equalsIgnoreCase("Trade")) {
@@ -165,26 +208,90 @@ public class CollectStra extends JPanel {
 			}
 		}
 	}
+
 	class removeFromCollection implements ActionListener {
 		public void actionPerformed(ActionEvent b) {
 			if (b.getActionCommand().equals("Delete")) {
 				String delete = (String) catalog.getSelectedValue();
-				collection.remove(delete);
-				catModel.removeElement(delete);
+				int remove = collection.indexOf(delete);
+				System.out.println(remove);
+				collection.remove(remove);
+				catModel.clear();
 				numItems--;
+				for (int i = 0; i < numItems; i++) {
+					catModel.addElement(collection.get(i));
+				}
 			}
 		}
 	}
-	
+
 	class removeFromTrade implements ActionListener {
 		public void actionPerformed(ActionEvent c) {
 			if (c.getActionCommand().equals("Remove")) {
 				String delete = (String) trade.getSelectedValue();
 				forTrade.remove(delete);
-				traModel.removeElement(delete);
+				traModel.clear();
 				numTradeItems--;
+				for (int i = 0; i < numTradeItems; i++) {
+					traModel.addElement(forTrade.get(i));
+				}
 			}
 		}
+	}
+
+	class searchCollection implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (e.getActionCommand().equals("Search")) {
+
+				try {
+					catModel.clear();
+					int index = 0;
+					String check = searchText.getText();
+					boolean search = collection.contains(check);
+					if (search == false) {
+						for (int i = 0; i < collection.size(); i++) {
+							catModel.addElement(collection.get(i));
+						}
+
+					}
+
+					else if (collection.contains(check)) {
+						index = collection.indexOf(check);
+						catModel.addElement(collection.get(index));
+
+					}
+
+				} catch (Exception z) {
+					System.out.println(z.getMessage());
+				}
+
+			}
+
+		}
+	}
+
+	class searchTrade implements ActionListener {
+		public void actionPerformed(ActionEvent f) {
+			if (f.getActionCommand().equals("Find")) {
+				traModel.clear();
+				int index = 0;
+				String check = traText.getText();
+				boolean search = forTrade.contains(check);
+				if (forTrade.contains(check)) {
+					index = forTrade.indexOf(check);
+					traModel.addElement(forTrade.get(index));
+				}
+
+				else {
+					for (int i = 0; i < numTradeItems; i++) {
+						traModel.addElement(forTrade.get(i));
+					}
+
+				}
+			}
+
+		}
+
 	}
 
 	public static void main(String[] args) {
