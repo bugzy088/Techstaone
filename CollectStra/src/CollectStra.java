@@ -40,6 +40,7 @@ public class CollectStra extends JPanel {
 	private DefaultListModel traModel;
 	private ArrayList<String> collection;
 	private ArrayList<String> forTrade;
+	public ArrayList<String> eventLog;
 	private int numItems;
 	private int numTradeItems;
 
@@ -54,6 +55,7 @@ public class CollectStra extends JPanel {
 		this.frame.setVisible(true);
 		this.collection = new ArrayList<String>();
 		this.forTrade = new ArrayList<String>();
+		this.eventLog = new ArrayList<String>();
 		this.numItems = 0;
 		this.numTradeItems = 0;
 	}
@@ -88,6 +90,7 @@ public class CollectStra extends JPanel {
 		this.catText.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				collection.add(catText.getText());
+				eventLog.add("User aquired " + catText.getText() + ".");
 				catModel.addElement(collection.get(numItems));
 				catText.setText("");
 				numItems++;
@@ -132,6 +135,7 @@ public class CollectStra extends JPanel {
 				if (forTrade.contains(check)) {
 					index = forTrade.indexOf(check);
 					traModel.addElement(forTrade.get(index));
+					eventLog.add("User is looking to aquire " + check + ".");
 				}
 
 				else {
@@ -187,6 +191,12 @@ public class CollectStra extends JPanel {
 		this.delTra.addActionListener(new removeFromTrade());
 		this.delTra.setBounds(208, 55, 100, 40);
 		this.panel.add(delTra);
+
+		// Button for bottom left corner to pop open Feed
+		this.searchCat = new JButton("Show Feed");
+		this.searchCat.addActionListener(new showFeed());
+		this.searchCat.setBounds(10, 520, 100, 30);
+		this.panel.add(searchCat);
 	}
 
 	class addCatListen implements ActionListener {
@@ -204,6 +214,7 @@ public class CollectStra extends JPanel {
 				String move = (String) catalog.getSelectedValue();
 				forTrade.add(move);
 				traModel.addElement(forTrade.get(numTradeItems));
+				eventLog.add("User is trading " + catalog.getSelectedValue() + ".");
 				numTradeItems++;
 			}
 		}
@@ -213,6 +224,7 @@ public class CollectStra extends JPanel {
 		public void actionPerformed(ActionEvent b) {
 			if (b.getActionCommand().equals("Delete")) {
 				String delete = (String) catalog.getSelectedValue();
+				eventLog.add("User no longer has " + catalog.getSelectedValue() + ".");
 				int remove = collection.indexOf(delete);
 				System.out.println(remove);
 				collection.remove(remove);
@@ -229,6 +241,7 @@ public class CollectStra extends JPanel {
 		public void actionPerformed(ActionEvent c) {
 			if (c.getActionCommand().equals("Remove")) {
 				String delete = (String) trade.getSelectedValue();
+				eventLog.add("User is no longer trading " + catalog.getSelectedValue() + ".");
 				forTrade.remove(delete);
 				traModel.clear();
 				numTradeItems--;
@@ -288,6 +301,41 @@ public class CollectStra extends JPanel {
 					}
 
 				}
+			}
+
+		}
+
+	}
+
+	// Bec's class to pop open a new JPanel to display events
+	class showFeed implements ActionListener {
+
+		private JFrame feedFrame;
+		private JPanel feedPanel;
+		private JList feed;
+		private DefaultListModel feedModel;
+
+		public void actionPerformed(ActionEvent e) {
+			this.feedFrame = new JFrame("Feed");
+			this.feedFrame.setSize(250, 400);
+			this.feedFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+			this.feedPanel = new JPanel();
+			this.feedFrame.add(feedPanel);
+			this.feedFrame.setVisible(true);
+
+			this.feedModel = new DefaultListModel();
+			this.feed = new JList(feedModel);
+			this.feed.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+			this.feed.setSelectedIndex(0);
+			this.feed.setVisibleRowCount(5);
+			JScrollPane feedScrollPane = new JScrollPane(this.feed);
+			this.feed.setBounds(200, 210, 50, 50);
+			this.feedPanel.add(feed);
+
+			int i = 0;
+			while (i < eventLog.size()) {
+				feedModel.addElement(eventLog.get(i));
+				i++;
 			}
 
 		}
